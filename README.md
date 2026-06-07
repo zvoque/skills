@@ -40,6 +40,13 @@ cp -R contrarian /path/to/project/.claude/skills/
 
 Then invoke with `/<skill-name>` or let Claude trigger it from the skill's description.
 
+All three skills are self-contained — just `SKILL.md` and optional `references/`. No hooks, scripts, or `settings.json` changes to wire up.
+
+## Notes
+
+- **contrarian** persists across turns via its `mode: true` frontmatter flag and prompt instructions — no hook required. Disable it with `/contrarian off`.
+- **debate-team** uses inter-agent messaging (`TeamCreate` / `SendMessage`), so it needs a Claude environment that supports spawning and coordinating multiple agents.
+
 ## Attribution
 
 `design-md` implements the open [`google-labs-code/design.md`](https://github.com/google-labs-code/design.md) spec (alpha).
